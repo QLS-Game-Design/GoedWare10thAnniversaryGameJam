@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Attacks");
         }
                 // Get horizontal movement input
-        moveInput = Input.GetAxis("Horizontal");
+        moveInput = Input.GetAxisRaw("Horizontal");
 
         // Trigger the movement animation
         animator.SetFloat("Speed", Math.Abs(moveInput) > 0 ? 1f : 0f);
