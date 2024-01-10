@@ -86,6 +86,10 @@ public class PlayerMovement : MonoBehaviour
         else if (moveInput < 0)
         {
             spriteRenderer.flipX = false;
+            foreach(Transform child in this.transform) {
+                GameObject w = child.GetComponent<GameObject>();
+                Vector3 newPos = new Vector3(w.transform.position.x + 2.5f, 0, 0);
+            }
         }
         // If not moving, maintain the current sprite orientation
         else
