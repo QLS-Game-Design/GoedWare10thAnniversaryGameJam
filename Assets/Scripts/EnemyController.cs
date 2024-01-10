@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public int currHealth;
+    public int maxHealth;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxHealth = 100;
+        currHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Hit(int damage) {
+        currHealth -= damage;
     }
 }

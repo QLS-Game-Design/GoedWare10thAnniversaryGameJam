@@ -85,14 +85,18 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput > 0)
         {
             spriteRenderer.flipX = true;
+            foreach(Transform child in this.transform) {
+                Vector3 newPos = new Vector3(this.transform.position.x+1.5f, this.transform.position.y, this.transform.position.z);
+                child.position = newPos;
+            }
         }
         // If moving to the left, flip the sprite horizontally
         else if (moveInput < 0)
         {
             spriteRenderer.flipX = false;
             foreach(Transform child in this.transform) {
-                GameObject w = child.GetComponent<GameObject>();
-                Vector3 newPos = new Vector3(w.transform.position.x + 2.5f, 0, 0);
+                Vector3 newPos = new Vector3(this.transform.position.x-1.5f, this.transform.position.y, this.transform.position.z);
+                child.position = newPos;
             }
         }
         // If not moving, maintain the current sprite orientation
