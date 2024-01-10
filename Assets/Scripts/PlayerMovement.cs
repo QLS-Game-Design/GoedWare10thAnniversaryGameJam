@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -68,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxis("Horizontal");
 
         // Trigger the movement animation
-        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        animator.SetFloat("Speed", Math.Abs(moveInput) > 0 ? 1f : 0f);
+
 
         // Flip the player based on the direction
         FlipPlayer();
