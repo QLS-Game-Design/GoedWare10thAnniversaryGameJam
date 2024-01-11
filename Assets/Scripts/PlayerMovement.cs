@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
         private SpriteRenderer spriteRenderer;
     // private TrailRenderer trailRenderer;
+
+    public int damage;
     
     private void Start()
     {
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         // trailRenderer = GetComponent<TrailRenderer>();
         // trailRenderer.emitting = false;
+        damage = 30;
     }
 
     private void Update()
@@ -66,7 +70,8 @@ public class PlayerMovement : MonoBehaviour
                 // Check for left mouse button click
         if (Input.GetMouseButtonDown(0)) // 0 represents the left mouse button
         {
-            // Trigger the attack animation
+            Debug.Log("attacked");
+            transform.GetComponentInChildren<Weapon>().attack(damage);
             animator.SetTrigger("Attacks");
         }
                 // Get horizontal movement input
@@ -104,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // You may want to add additional logic or animation handling here
         }
+   
     }
 
 }
