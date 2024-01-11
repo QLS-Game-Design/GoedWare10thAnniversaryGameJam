@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     // private TrailRenderer trailRenderer;
 
     public int damage;
+
+    public int currHealth;
+    public int maxHealth;
     
     private void Start()
     {
@@ -29,7 +32,11 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         // trailRenderer = GetComponent<TrailRenderer>();
         // trailRenderer.emitting = false;
+
         damage = 30;
+
+        maxHealth = 100;
+        currHealth = maxHealth;
     }
 
     private void Update()

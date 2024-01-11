@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public bool attacking;
     [SerializeField]
     private bool iin;
     Collider2D other;
     // Start is called before the first frame update
     void Start()
     {
-        attacking = false;
+
     }
 
     // Update is called once per frame
