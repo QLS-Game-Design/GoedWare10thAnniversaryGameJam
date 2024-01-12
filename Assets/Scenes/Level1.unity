@@ -613,6 +613,8 @@ MonoBehaviour:
   dashSpeed: 30
   dashTime: 0.1
   damage: 0
+  currHealth: 0
+  maxHealth: 0
 --- !u!50 &1670691109
 Rigidbody2D:
   serializedVersion: 4
@@ -1007,8 +1009,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d00fd69ef44eb84d8bc0aab9aba22af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacking: 0
   iin: 0
+  cooldown: 1
+  canHit: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -71,15 +71,17 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             animator.SetFloat("Jumping", 1);
         }
-        else if(Mathf.Abs(rigidbody.velocity.y) < 0.015){
+        else if(Mathf.Abs(rigidbody.velocity.y) < 0.015) {
             animator.SetFloat("Jumping",0);
         }
                 // Check for left mouse button click
         if (Input.GetMouseButtonDown(0)) // 0 represents the left mouse button
         {
-            Debug.Log("attacked");
-            transform.GetComponentInChildren<Weapon>().attack(damage);
-            animator.SetTrigger("Attacks");
+            if (transform.GetComponentInChildren<Weapon>().canHit) {
+                animator.SetTrigger("Attacks");
+                transform.GetComponentInChildren<Weapon>().attack(damage);
+                transform.GetComponentInChildren<Weapon>().canHit = false;
+            }
         }
                 // Get horizontal movement input
         moveInput = Input.GetAxisRaw("Horizontal");
