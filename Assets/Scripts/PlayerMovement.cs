@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private Animator animator;
     private float moveInput;
-        private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     // private TrailRenderer trailRenderer;
 
     public int damage;
@@ -79,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.GetComponentInChildren<Weapon>().canHit) {
                 animator.SetTrigger("Attacks");
-                transform.GetComponentInChildren<Weapon>().attack(damage);
-                transform.GetComponentInChildren<Weapon>().canHit = false;
+                Invoke("attack", 0.3f);
             }
         }
                 // Get horizontal movement input
@@ -119,6 +118,12 @@ public class PlayerMovement : MonoBehaviour
             // You may want to add additional logic or animation handling here
         }
    
+    }
+
+    private void attack() {
+        transform.GetComponentInChildren<Weapon>().attack(damage);
+        Debug.Log("ye");
+        transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 
 }
