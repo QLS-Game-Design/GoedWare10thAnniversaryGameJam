@@ -8,8 +8,6 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     public float MovementSpeed = 5f;
-    public int currentMadness;
-    public healthBar madnessBar;
     public float JumpForce = 1f;
     public float dashSpeed = 15f;
     public float dashTime = 0.1f;
@@ -42,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
         maxHealth = 100;
         currHealth = maxHealth;
 
-        currentMadness = 0;
-        madnessBar.setMaxMadness(100);
-        madnessBar.SetMadness(0);
         damageBuff = 0;
     }
 

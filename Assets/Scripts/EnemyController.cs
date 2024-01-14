@@ -6,12 +6,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int currHealth;
-    public healthBar madnessBar;
+    public MadnessBar madnessBar;
     private int currentMadness;
     public int maxHealth;
     public float thrust;
     Rigidbody2D rb2d;
-    private float time;
     GameObject player;
 
     // Start is called before the first frame update
@@ -27,11 +26,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         currentMadness = madnessBar.getMadness();
-        time += Time.deltaTime;
         if (currHealth <= 0) {
             player.GetComponent<PlayerMovement>().damageBuff++;
             player.GetComponent<PlayerMovement>().maxHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
             player.GetComponent<PlayerMovement>().currHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
+            madnessBar.SetMadness(currentMadness + 10);
             Destroy(gameObject);
         }
     }
