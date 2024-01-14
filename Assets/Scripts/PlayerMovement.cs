@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float currHealth;
     public float maxHealth;
+
+    public int damageBuff;
     
     private void Start()
     {
@@ -37,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
         maxHealth = 100;
         currHealth = maxHealth;
+
+        damageBuff = 0;
     }
 
     private void Update()
@@ -99,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x+1.5f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x+1.3f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -108,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x-1.5f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x-1.3f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -121,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void attack() {
-        transform.GetComponentInChildren<Weapon>().attack(damage);
+        transform.GetComponentInChildren<Weapon>().attack(damage + 3*damageBuff);
         transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 

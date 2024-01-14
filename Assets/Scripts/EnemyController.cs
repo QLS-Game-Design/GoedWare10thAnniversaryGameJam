@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public float thrust;
     Rigidbody2D rb2d;
     private float time;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class EnemyController : MonoBehaviour
         maxHealth = 100;
         currHealth = maxHealth;
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        player  = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class EnemyController : MonoBehaviour
     {
         time += Time.deltaTime;
         if (currHealth <= 0) {
+            player.GetComponent<PlayerMovement>().damageBuff++;
             Destroy(gameObject);
         }
     }
@@ -32,8 +35,7 @@ public class EnemyController : MonoBehaviour
         Invoke("push", 0.3f);
     }
 
-    private void push() {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+    private void push() { 
         if (player.GetComponent<PlayerMovement>().spriteRenderer.flipX == true) {
             rb2d.AddForce(new Vector2(1, 0)*thrust, ForceMode2D.Impulse);
         } else {

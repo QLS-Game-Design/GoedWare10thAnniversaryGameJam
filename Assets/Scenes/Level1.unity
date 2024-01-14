@@ -951,6 +951,7 @@ MonoBehaviour:
   damage: 0
   currHealth: 0
   maxHealth: 0
+  damageBuff: 0
 --- !u!50 &1670691109
 Rigidbody2D:
   serializedVersion: 4
@@ -1282,7 +1283,7 @@ Transform:
   m_GameObject: {fileID: 2100134617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.021, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.021, z: 0}
   m_LocalScale: {x: 0.32000592, y: 0.49266008, z: 0.28560004}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1322,7 +1323,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.20749874, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1332,7 +1333,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4149971, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2100134620
 MonoBehaviour:
