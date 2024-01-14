@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Jumping
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(rigidbody.velocity.y) < 0.001f)
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown("w")) && Mathf.Abs(rigidbody.velocity.y) < 0.001f)
         {
             rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             animator.SetFloat("Jumping", 1);
