@@ -24,15 +24,17 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (currHealth <= 0) {
-            player.GetComponent<PlayerMovement>().damageBuff++;
-            Destroy(gameObject);
-        }
     }
 
     public void Hit(int damage) {
         currHealth -= damage;
         Invoke("push", 0.3f);
+        if (currHealth <= 0) {
+            player.GetComponent<PlayerMovement>().damageBuff++;
+            player.GetComponent<PlayerMovement>().maxHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
+            player.GetComponent<PlayerMovement>().currHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
+            Destroy(gameObject);
+        }
     }
 
     private void push() { 
