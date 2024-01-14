@@ -19,13 +19,15 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private Animator animator;
     private float moveInput;
-        private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     // private TrailRenderer trailRenderer;
 
     public int damage;
 
-    public int currHealth;
-    public int maxHealth;
+    public float currHealth;
+    public float maxHealth;
+
+    public int damageBuff;
     
     private void Start()
     {
@@ -43,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         currentMadness = 0;
         madnessBar.setMaxMadness(100);
         madnessBar.SetMadness(0);
+        damageBuff = 0;
     }
 
     private void Update()
@@ -85,8 +88,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.GetComponentInChildren<Weapon>().canHit) {
                 animator.SetTrigger("Attacks");
-                transform.GetComponentInChildren<Weapon>().attack(damage);
-                transform.GetComponentInChildren<Weapon>().canHit = false;
+                Invoke("attack", 0.3f);
             }
         }
                 // Get horizontal movement input
@@ -106,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x+1.5f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x+1.3f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -115,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x-1.5f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x-1.3f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -125,6 +127,11 @@ public class PlayerMovement : MonoBehaviour
             // You may want to add additional logic or animation handling here
         }
    
+    }
+
+    private void attack() {
+        transform.GetComponentInChildren<Weapon>().attack(damage + 3*damageBuff);
+        transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 
 }

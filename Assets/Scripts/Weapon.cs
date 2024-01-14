@@ -26,7 +26,6 @@ public class Weapon : MonoBehaviour
         if (canHit == false) {
             time += Time.deltaTime;
             if (time > cooldown) {
-                Debug.Log("ye");
                 canHit = true;
                 time = 0.0f;
             }
