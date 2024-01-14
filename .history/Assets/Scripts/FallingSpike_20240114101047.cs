@@ -25,6 +25,9 @@ public class RandomSpikeMovement : MonoBehaviour
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
         }
 
+        if (transform.position.y == minY) {
+            
+        }
     }
 
     float targetX;

@@ -24,14 +24,13 @@ public class RandomSpikeMovement : MonoBehaviour
             //Drop the spike down
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
         }
-
     }
 
     float targetX;
 
     void MoveToRandomX()
     {   
-        //Set a random target x position near player
+        // Set a random target x position near player
         targetX = Random.Range(playerMovement.getXPos() - 2f, playerMovement.getXPos() + 2f);
         Debug.Log(targetX);
         transform.position = new Vector2(targetX, maxY);

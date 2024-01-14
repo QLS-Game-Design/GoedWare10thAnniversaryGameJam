@@ -18,20 +18,19 @@ public class RandomSpikeMovement : MonoBehaviour
         //moves down
         transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
 
-        //Check if the spike is at the target x position
+        // Check if the spike is at the target x position
         if (Mathf.Approximately(transform.position.x, transform.GetComponent<RandomSpikeMovement>().targetX))
         {
-            //Drop the spike down
+            // Drop the spike down
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
         }
-
     }
 
     float targetX;
 
     void MoveToRandomX()
     {   
-        //Set a random target x position near player
+        // Set a random target x position near player
         targetX = Random.Range(playerMovement.getXPos() - 2f, playerMovement.getXPos() + 2f);
         Debug.Log(targetX);
         transform.position = new Vector2(targetX, maxY);

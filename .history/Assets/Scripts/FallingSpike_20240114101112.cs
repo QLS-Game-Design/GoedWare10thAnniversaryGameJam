@@ -24,7 +24,10 @@ public class RandomSpikeMovement : MonoBehaviour
             //Drop the spike down
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
         }
-
+        //destroy after min y reached
+        if (transform.position.y == minY) {
+            Destroy(gameObject);
+        }
     }
 
     float targetX;

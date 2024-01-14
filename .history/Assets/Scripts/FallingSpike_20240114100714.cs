@@ -24,7 +24,6 @@ public class RandomSpikeMovement : MonoBehaviour
             //Drop the spike down
             transform.Translate(Vector2.down * moveSpeed * Time.deltaTime);
         }
-
     }
 
     float targetX;
