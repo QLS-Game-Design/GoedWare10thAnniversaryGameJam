@@ -8,8 +8,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     public float MovementSpeed = 5f;
-    public int currentMadness;
-    public healthBar madnessBar;
+    public int curre
     public float JumpForce = 1f;
     public float dashSpeed = 15f;
     public float dashTime = 0.1f;
@@ -19,15 +18,13 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private Animator animator;
     private float moveInput;
-    public SpriteRenderer spriteRenderer;
+        private SpriteRenderer spriteRenderer;
     // private TrailRenderer trailRenderer;
 
     public int damage;
 
-    public float currHealth;
-    public float maxHealth;
-
-    public int damageBuff;
+    public int currHealth;
+    public int maxHealth;
     
     private void Start()
     {
@@ -43,9 +40,6 @@ public class PlayerMovement : MonoBehaviour
         currHealth = maxHealth;
 
         currentMadness = 0;
-        madnessBar.setMaxMadness(100);
-        madnessBar.SetMadness(0);
-        damageBuff = 0;
     }
 
     private void Update()
@@ -88,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.GetComponentInChildren<Weapon>().canHit) {
                 animator.SetTrigger("Attacks");
-                Invoke("attack", 0.3f);
+                transform.GetComponentInChildren<Weapon>().attack(damage);
+                transform.GetComponentInChildren<Weapon>().canHit = false;
             }
         }
                 // Get horizontal movement input
@@ -108,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x+1.3f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x+1.5f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -117,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.flipX = false;
             foreach(Transform child in this.transform) {
-                Vector3 newPos = new Vector3(this.transform.position.x-1.3f, this.transform.position.y, this.transform.position.z);
+                Vector3 newPos = new Vector3(this.transform.position.x-1.5f, this.transform.position.y, this.transform.position.z);
                 child.position = newPos;
             }
         }
@@ -127,11 +122,6 @@ public class PlayerMovement : MonoBehaviour
             // You may want to add additional logic or animation handling here
         }
    
-    }
-
-    private void attack() {
-        transform.GetComponentInChildren<Weapon>().attack(damage + 3*damageBuff);
-        transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 
 }
