@@ -132,4 +132,8 @@ public class PlayerMovement : MonoBehaviour
         transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 
+    public void Hit(int damage) {
+        currHealth -= damage;
+    }
+
 }
