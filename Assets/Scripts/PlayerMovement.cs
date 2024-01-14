@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int damage;
 
-    public int currHealth;
-    public int maxHealth;
+    public float currHealth;
+    public float maxHealth;
     
     private void Start()
     {
@@ -122,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void attack() {
         transform.GetComponentInChildren<Weapon>().attack(damage);
-        Debug.Log("ye");
         transform.GetComponentInChildren<Weapon>().canHit = false;
     }
 
