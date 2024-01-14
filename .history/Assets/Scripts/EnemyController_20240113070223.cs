@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
 {
     public int currHealth;
     public healthBar madnessBar;
-    private int currentMadness;
     public int maxHealth;
 
     // Start is called before the first frame update
@@ -19,10 +18,10 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   currentMadness = madnessBar.getMadness();
+
         if (currHealth <= 0) {
             Destroy(gameObject);
-            madnessBar.SetMadness(currentMadness + 10);
+            madnessBar.SetMadness(0);
         }
     }
 

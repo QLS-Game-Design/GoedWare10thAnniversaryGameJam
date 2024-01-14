@@ -19,10 +19,10 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   currentMadness = madnessBar.getMadness();
+    {   currentMadness = 
         if (currHealth <= 0) {
             Destroy(gameObject);
-            madnessBar.SetMadness(currentMadness + 10);
+            madnessBar.SetMadness(0);
         }
     }
 

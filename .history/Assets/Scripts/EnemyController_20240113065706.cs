@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
     public int currHealth;
-    public healthBar madnessBar;
-    private int currentMadness;
+    public healthBar
     public int maxHealth;
 
     // Start is called before the first frame update
@@ -19,10 +17,10 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   currentMadness = madnessBar.getMadness();
+    {
         if (currHealth <= 0) {
             Destroy(gameObject);
-            madnessBar.SetMadness(currentMadness + 10);
+            
         }
     }
 
