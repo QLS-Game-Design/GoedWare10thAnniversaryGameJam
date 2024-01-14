@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
    
     }
     public float getXPos() {
-        return transform.position.x;
+        return new Vector2(transform.position.x, transform.position.y);
     }
     private void attack() {
         transform.GetComponentInChildren<Weapon>().attack(damage + 3*damageBuff);

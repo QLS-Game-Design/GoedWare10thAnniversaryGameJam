@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
             player.GetComponent<PlayerMovement>().damageBuff++;
             player.GetComponent<PlayerMovement>().maxHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
             player.GetComponent<PlayerMovement>().currHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
-            madnessBar.SetMadness(currentMadness+10);
+            madnessBar.SetMadness(currentMadness)
             Destroy(gameObject);
         }
     }

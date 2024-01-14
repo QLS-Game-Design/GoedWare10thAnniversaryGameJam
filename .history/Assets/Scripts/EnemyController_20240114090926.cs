@@ -30,10 +30,8 @@ public class EnemyController : MonoBehaviour
         time += Time.deltaTime;
         if (currHealth <= 0) {
             player.GetComponent<PlayerMovement>().damageBuff++;
-            player.GetComponent<PlayerMovement>().maxHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
-            player.GetComponent<PlayerMovement>().currHealth += player.GetComponent<PlayerMovement>().damageBuff*3;
-            madnessBar.SetMadness(currentMadness+10);
             Destroy(gameObject);
+            madnessBar.SetMadness(currentMadness + 10);
         }
     }
 
