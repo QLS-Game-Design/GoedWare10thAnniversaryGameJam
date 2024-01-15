@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimer = 0f;
     private Animator animator;
     private float moveInput;
+    public MadnessBar madnessBar;
     public SpriteRenderer spriteRenderer;
     // private TrailRenderer trailRenderer;
 
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         // trailRenderer = GetComponent<TrailRenderer>();
         // trailRenderer.emitting = false;
 
-        damage = 30;
+        damage = 20;
 
         maxHealth = 100;
         currHealth = maxHealth;
@@ -46,6 +47,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+if(madnessBar.getMadness() >= 80) {
+    damage = 70;
+} else if(madnessBar.getMadness() >= 60) {
+    damage = 60;
+} else if(madnessBar.getMadness() >= 40) {
+    damage = 50;
+} else if(madnessBar.getMadness() >= 10) {
+    damage = 40;
+}
         // Left - Right Movement
         var movement = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;

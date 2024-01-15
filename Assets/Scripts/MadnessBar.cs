@@ -24,6 +24,6 @@ public class MadnessBar : MonoBehaviour
     }
 
     public int getMadness() {
-        return (int)(slider.value * 10);
+        return (int)(slider.value);
     }
 }
