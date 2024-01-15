@@ -696,9 +696,11 @@ MonoBehaviour:
   JumpForce: 5
   dashSpeed: 30
   dashTime: 0.1
+  spriteRenderer: {fileID: 0}
   damage: 0
   currHealth: 0
   maxHealth: 0
+  damageBuff: 0
 --- !u!50 &1670691109
 Rigidbody2D:
   serializedVersion: 4
@@ -1085,7 +1087,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currHealth: 0
+  madnessBar: {fileID: 0}
   maxHealth: 0
+  thrust: 0
+  moveSpeed: 0
+  player: {fileID: 1670691104}
 --- !u!1 &2100134617
 GameObject:
   m_ObjectHideFlags: 0
